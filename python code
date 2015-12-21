@@ -24,7 +24,7 @@ g.add_edge(6,7)
 g.add_edge(6,8)
 g.add_edge(7,8)
 g.add_edge(7,9)
-g.add_edge(0,1)
+g.add_edge(8,9)
 
 
 for e in g.edges() :        # list containing edge weight values over time 
