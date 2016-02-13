@@ -65,7 +65,56 @@ def mod_dijk(g,s):
     return fin
 
             
+# Sample queries ---------------------
+
+q=[]
+
+
+for _ in range(100):
+    q.append((random.randint(0,9),random.randint(0,9)))
+    
 #  Path and Edge ---------------------
 
+
+
+
+def path_multi_query(g,queries):                                # takes queries in list format [(s1,d1), (s2,d2)......]
+
+    paths=[]							# final list that will contain calculated paths for every query
+1
+    for q in queries:
+
+        path=[]
+
+        if q[0]==q[1]:
+            paths.append(path)
+            continue
+        
+        a,b = mod_dijk(g,q[0])					# sequentially routing every query 
+
+        nex = q[1]
+        sta = b[nex]
+        path.append(nex)
+
+        while True:						# changing the edge weight list after rounting a query.
+            path.append(sta)
+            temp = a[sta]
+            while temp <  a[nex]:
+                g[sta][nex]['Weight'][temp]+=1
+                temp+=1
+
+            if sta ==q[0]:
+                break
+            temp = sta
+            sta = b[sta]
+            nex = temp
+
+        paths.append(path)
+    return paths
+
+
+
+
+            
 
 
